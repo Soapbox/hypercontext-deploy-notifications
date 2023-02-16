@@ -9,15 +9,17 @@ class DeployementMessage extends Message
 {
     protected function initialize()
     {
-        $this->fields->push(new Field([
-            'title' => 'Message',
-            'value' => $this->getCommitMessage(),
-            'short' => false,
-        ]));
+        $message = $this->getCommitMessage();
 
         if ($this->isFailureMessage()) {
-            $this->data['text'] = '<!channel> ' . $this->data['text'];
+            $message = "<!channel> {$message}";
         }
+
+        $this->fields->push(new Field([
+            'title' => 'Message',
+            'value' => $message,
+            'short' => false,
+        ]));
     }
 
     private function getCommitUrl(): string
