@@ -33,6 +33,6 @@ abstract class Message implements Arrayable
 
     protected function isFailureMessage(): bool
     {
-        return $this->data['color'] == '#F35A00';
+        return $this->data['color'] == 'danger';
     }
 }

@@ -27,7 +27,7 @@ class Notify
             Log::debug($message);
             Log::debug($e);
         }
-        Log::debug($message);
+        
         $client->post(env('SLACK_WEBHOOK'), [
             'json' => $message,
         ]);
