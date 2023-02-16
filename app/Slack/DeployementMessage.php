@@ -12,7 +12,7 @@ class DeployementMessage extends Message
         $message = $this->getCommitMessage();
 
         if ($this->isFailureMessage()) {
-            $message = "<!channel> {$message}";
+            $message = "@channel {$message}";
         }
 
         $this->fields->push(new Field([
